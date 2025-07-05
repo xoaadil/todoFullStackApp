@@ -1,0 +1,16 @@
+# Node modules
+**/node_modules/
+
+# Env files
+**/.env
+
+# Log files
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel or Netlify (if deployed)
+.vercel/
+.netlify/
