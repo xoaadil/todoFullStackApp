@@ -27,6 +27,7 @@ function Signup() {
             return handleError('name, email and password are required')
         }
         try {
+            console.log("sending the signup request");
            const url = `https://todo-full-stack-app-api.vercel.app/auth/signup`;
 
             const response = await fetch(url, {
@@ -40,6 +41,7 @@ function Signup() {
             const { success, message, error } = result;
             
             if (success) {
+                console.log("signup complete");
                 handleSuccess(message);
                 setTimeout(() => {
                     navigate('/login')
