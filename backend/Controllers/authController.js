@@ -2,29 +2,50 @@ const userModel = require("../Models/User");
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
-let signup = async (req, res, next) => {
+
+let signup = async (req, res) => { 
     console.log("📤 Sending user data to database...")
     try {
         const { name, email, password } = req.body;
-        const user = await userModel.findOne({ email: email });
-        if (user) {
-            return res.status(400).send({ message: "This email is already registered" });
-        }
-        else {
-            let hashpass = await bcrypt.hash(password, 5);
-            const user = await userModel.create({
-                name: name,
-                email: email,
-                password: hashpass
-            })
+        
+        // Validate input
+        if (!name || !email || !password) {
+            return res.status(400).json({ 
+                success: false, 
+                message: "Name, email and password are required" 
+            });
         }
 
+        const user = await userModel.findOne({ email: email });
+        if (user) {
+            return res.status(400).json({ 
+                success: false, 
+                message: "This email is already registered" 
+            });
+        }
+
+        let hashpass = await bcrypt.hash(password, 5);
+        const newUser = await userModel.create({
+            name: name,
+            email: email,
+            password: hashpass
+        });
+
+        console.log("✅ User successfully saved in database");
+        return res.status(201).json({ 
+            success: true, 
+            message: "User created successfully",
+            user: newUser 
+        });
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ 
+            success: false, 
+            message: "Internal server error",
+            error: err.message 
+        });
     }
-    catch (err) {
-        console.log(err)
-    }
-    console.log("✅ User successfully saved in database");
-    next();
 }
 let login = async (req, res, next) => {
     console.log("📤 Sending user data to database for Verifcation Login");

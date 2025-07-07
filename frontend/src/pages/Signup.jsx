@@ -23,6 +23,7 @@ function Signup() {
     const handleSignup = async (e) => {
         e.preventDefault();
         const { name, email, password } = signupInfo;
+        console.log(name,email,password);
         if (!name || !email || !password) {
             return handleError('name, email and password are required')
         }
