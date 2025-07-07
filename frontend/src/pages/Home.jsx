@@ -13,7 +13,7 @@ function Home() {
   // Fetch todos on page load
   const fetchTodos = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/todo`, {
+      const res = await fetch(`https://todo-full-stack-app-api.vercel.app/todo`, {
         method: "GET",
         headers: {
           token: token,
@@ -36,7 +36,7 @@ function Home() {
     if (!task) return;
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/todo/new`, {
+      const res = await fetch(`https://todo-full-stack-app-api.vercel.app/todo/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function Home() {
   // Toggle task complete
   const toggleTodo = async (id) => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/todo/${id}`, {
+      await fetch(`https://todo-full-stack-app-api.vercel.app/todo/${id}`, {
         method: "PUT",
         headers: {
           token: token,
@@ -71,7 +71,7 @@ function Home() {
   // Delete task
   const deleteTodo = async (id) => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/todo/${id}`, {
+      await fetch(`https://todo-full-stack-app-api.vercel.app/todo/${id}`, {
         method: "DELETE",
         headers: {
           token: token,

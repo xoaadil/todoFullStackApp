@@ -27,7 +27,7 @@ function Signup() {
             return handleError('name, email and password are required')
         }
         try {
-           const url = `${import.meta.env.VITE_API_URL}/auth/signup`;
+           const url = `https://todo-full-stack-app-api.vercel.app/auth/signup`;
 
             const response = await fetch(url, {
                 method: "POST",
