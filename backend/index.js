@@ -11,14 +11,19 @@ require("./Models/db");
 
 const AuthRouter = require("./Routes/AuthRouter");
 const productRouter = require("./Routes/productRouter");
+
 app.use(express.json());
 app.use(cors());
 
 app.use("/auth", AuthRouter);
 app.use("/todo",productRouter);
 
+app.get("/ping",(req,res)=>{
+  res.send("pong");
+})
+
 app.get("/", (req, res) => {
-  res.send("Server is running!");
+  res.send("Server is running! pong pogn");
 });
 
 app.listen(PORT, '0.0.0.0', () => {
