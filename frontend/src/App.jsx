@@ -16,7 +16,7 @@ function AppWrapper() {
     <>
       {showAuthLayout ? (
         <div className="container">
-          <h1 className="text-center">Todo App</h1>
+            <h2 className="todoh1">Todo App</h2>
           <hr id="underline" />
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />

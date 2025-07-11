@@ -89,40 +89,44 @@ function Home() {
     navigate("/login");
   };
 
-  return (
-    <div>
-    
-        {token && <span id="username">👤 {name}</span>}
-        {token ? (
-          <button className="logout-btn" id= "logout" onClick={logout}>Logout</button>
-        ) : (
-          <button id="signuphome" onClick={() => navigate("/signup")}>Signup</button>
-        )}
-     
+ return (
+    <div id="mainhome">
+      {token && <span id="username">👤 {name}</span>}
+      {token ? ( 
+        <button className="logout-btn" id="logout" onClick={logout}>Logout</button>
+      ) : ( <>
+<h2 id="todomaster">
+  Todo Master
+</h2>
+       <button id="signuphome" onClick={() => navigate("/signup")}>Signup</button>
+      </>
+       
+      )}
 
       {/* Main Section */}
-      <div id="todo">
-        {token ? (
-          <>   <div id="h1">Todo App</div>
-                <hr id="underline"/>
-        
-            {/* Input */}
-            <div  >
-              <form onSubmit={addTask} id="inputdiv">
-                <input
-                 id="inputspace"
-                  type="text"
-                  placeholder="Add task..."
-                  value={task}
-                  onChange={(e) => setTask(e.target.value)}
-                />
-                <button id="addbtn" type="submit">Add</button>
-              </form>
-            </div>
-             <div id="work">
+      {token ? (
+        <div id="todo">
+          <div id="h1">Todo App</div>
+          <hr id="underline" />
+
+          {/* Input */}
+          <div>
+            <form onSubmit={addTask} id="inputdiv">
+              <input
+                id="inputspace"
+                type="text"
+                placeholder="Add task..."
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+              />
+              <button id="addbtn" type="submit">Add</button>
+            </form>
+          </div>
+
+          <div id="work">
             {todos.length > 0 ? (
               todos.map((todo) => (
-                <div id="newtodo"  key={todo._id} className={todo.isDone ? "completed" : ""}>
+                <div id="newtodo" key={todo._id} className={todo.isDone ? "completed" : ""}>
                   <input
                     type="checkbox"
                     checked={todo.isDone}
@@ -138,56 +142,37 @@ function Home() {
                 <p>Start by adding a task above.</p>
               </div>
             )}
-             </div>
-          
-          </>
-        ) : (
-          <><div id="homecom" class="landing-page">
-  <div class="container">
-    <main class="hero">
-      <div class="hero-content">
-        <h1>Master Your Productivity</h1>
-        <p class="subtitle">The beautiful, intuitive todo app that helps you focus on what matters</p>
-        
-        <div class="cta-group">
-          <button  onClick={() => navigate("/signup")} class="cta-primary">
-            <span class="icon">🚀</span>
-            GET STARTED - IT'S FREE
-          </button>
-          <button class="cta-secondary">
-            <span class="icon">ℹ️</span>
-            LEARN MORE
-          </button>
-        </div>
-      </div>
-      
-      <div class="hero-image">
-        <div class="app-mockup">
-          {/* <!-- This would be your app screenshot or illustration --> */}
-          <div class="mockup-content">
-            <div class="task completed">✓ Buy groceries</div>
-            <div class="task">● Finish project</div>
-            <div class="task">● Call mom</div>
           </div>
         </div>
-      </div>
-    </main>
-    
-  
-    
-    <div class="final-cta">
-      <h2>Ready to transform your productivity?</h2>
-      <button onClick={() => navigate("/signup")} class="cta-primary large">
-        <span class="icon">✏️</span>
-        SIGN UP NOW
-      </button>
-    </div>
-  </div>
-</div>
-           
-          </>
-        )}
-      </div>
+      ) : (
+        //landing page
+        <div id="landing" className="landing-page">
+          <h1 id="landh1">Master Your Productivity</h1>
+          <p className="subtitle" id="landp">
+            The beautiful, intuitive todo app that helps you focus on what matters
+          </p>
+           <div className="app-mockup">
+            {/* App mockup preview */}
+            <div className="mockup-content">
+              <div className="task completed">✓ Buy groceries</div>
+              <div className="task">● Finish project</div>
+              <div className="task">● Call mom</div>
+            </div>
+          </div>
+          &nbsp;
+
+          <button onClick={() => navigate("/signup")} className="cta-primary" id="landsignup">
+            <span className="icon">🚀</span>
+            GET STARTED - IT'S FREE
+          </button>
+          <button className="cta-secondary" id="landlearn">
+            <span className="icon">ℹ️</span>
+            LEARN MORE
+          </button>
+
+         
+        </div>
+      )}
     </div>
   );
 }

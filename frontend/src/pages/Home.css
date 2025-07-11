@@ -31,9 +31,9 @@ body{
   gap: 6px;
 }
 #logout {
-  position: absolute;
-  top: 20px;
-  right: 60px;
+  position: fixed;
+  top: 7px;
+  right: 30px;
   padding: 5px 10px;
   background: #e74c3c;
   color: white;
@@ -44,7 +44,7 @@ body{
   transition: all 0.3s ease;
   width: 90px;
   align-items: center;
-  height: 25px;
+  height: 35px;
 }
 
 #logout:hover {
@@ -372,58 +372,97 @@ button {
 
 #signuphome {
   position: absolute;
-  top: 20px;
-  right: 60px;
-  padding: 5px 10px;
-  background: #e74c3c;
-  color: white;
+  top: 10px;
+  right: 50px;
+  padding: 5px 1px 5px 1px;
+  background: #360fd4;
+  color: rgb(218, 108, 5);
   border: none;
   border-radius: 50px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 90px;
+  font-size: 16px;
   align-items: center;
-  height: 20px;
-}
-
-
-.features {
-  padding: 80px 0;
-}
-
-.feature-grid {
-    width: 50px;
-  display: grid;
-  gap: 24px;
-  /* Default mobile view: 1 column */
-  grid-template-columns: 1fr;
-}
-
-/* Tablet view: 2 columns */
-@media (min-width: 768px) {
-  .feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Laptop/desktop view: 3 columns */
-@media (min-width: 1024px) {
-  .feature-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Large desktop view: 4 columns (if you have 4 features) */
-@media (min-width: 1280px) {
-  .feature-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* If you have exactly 3 features and want them centered on desktop */
-.feature-grid.three-features {
-  /* Will show 1 column on mobile, 2 on tablet, and 3 on desktop */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center;
+  height: 40px;
+}
+
+
+@media (max-width : 700px){
+  #todo{
+    width: 300px ;
+  }
+}
+@media (max-width : 700px) {
+  .delete{
+    padding: 5px 45px 3px 5px ;
+    font-size: 10px;
+    left: 10px;
+  }
+}
+@media (max-width : 700px){
+  #addbtn{
+    font-size: 12px;
+    top: 3px;
+    width: 60px;
+    height: 35px;
+    padding: 0 0 0 2px ;
+    
+  }
+}
+
+
+#landing{
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    background-image: url("../assets/bg-landing.jpg"); /* Relative or absolute path */
+  background-size: cover; /* Ensures the image covers the whole div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent tiling */
+}
+
+#todomaster{
+    position: absolute;
+  top: 30px;
+  left: 20px;
+ 
+  color: rgb(112, 90, 184);
+ 
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+#landh1{
+  position: relative;
+  left: 15px;
+}
+#landp{
+   position: relative;
+  left: 15px;
+  color: #f0d6d6;
+}
+#landsignup{
+  width: 350px;
+
+}
+#landlearn{
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+ 
 }

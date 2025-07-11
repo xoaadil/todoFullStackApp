@@ -94,7 +94,7 @@ function Signup() {
                     />
                 </div>
                 <button type='submit'>Signup</button>
-                <span id='lastline'>Already have an account ?
+                <span id='lastline'>Already have an account? 
                     <Link to="/login">Login</Link>
                 </span>
             </form>
